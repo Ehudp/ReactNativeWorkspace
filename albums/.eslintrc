@@ -1,5 +1,5 @@
 {
-    "extends": "rallycoding",
+    "extends": "airbnb",
     "parserOptions": {
         "ecmaVersion": 6
     },
@@ -13,7 +13,7 @@
         "no-unused-vars": [
             "error",
             {
-                "vars": "local",
+                "vars": "none",
                 "args": "none"
             }
         ],
