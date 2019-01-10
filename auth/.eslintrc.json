@@ -1,19 +1,23 @@
 {
     "extends": "airbnb-base",
+    // "parser": "babel-eslint",
+    // "parserOptions": {
+    //     "ecmaVersion": 6,
+    // },
     // "env": {
     //     "node": true,
     //     "browser": true,
     //     "es6": true
     // },
-    // "rules": {
-    //     "comma-dangle": "off",
-    //     "no-unused-vars": [
-    //         "error",
-    //         {
-    //             "vars": "none",
-    //             "args": "none"
-    //         }
-    //     ],
-    //     "spaced-comment": "off"
-    // }
+    "rules": {
+        "comma-dangle": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "none",
+                "args": "none"
+            }
+        ],
+        "spaced-comment": "off"
+    }
 }
