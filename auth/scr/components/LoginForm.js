@@ -5,10 +5,13 @@ import firebase from 'firebase';
 
 class LoginForm extends Component {
 
-    state = { email: '', password: '', error: '' };
+    state = { email: 'Test@test.com', password: 'Aa1234', error: '' };
 
     onButtonPress() {
         const { email, password } = this.state;
+
+        //  console.log(`Email ${this.state.email} Password ${this.state.password}`);
+        // console.log(`Email ${email} Password ${password}`);
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch(() => {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -41,7 +44,7 @@ class LoginForm extends Component {
                 </CardSection>
                 <Text style={styles.errorTextStyle}>{this.state.error}</Text>
                 <CardSection>
-                    <Button onPress={this.onButtonPress}>
+                    <Button onPress={() => this.onButtonPress()}>
                         Log in
                     </Button>
                 </CardSection>
