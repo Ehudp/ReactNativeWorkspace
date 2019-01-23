@@ -116194,17 +116194,22 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         this.props.emailChanged(text);
       }
     }, {
+      key: "onPasswordChange",
+      value: function onPasswordChange(text) {
+        this.props.passwordChanged(text);
+      }
+    }, {
       key: "render",
       value: function render() {
         return _react.default.createElement(_common.Card, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 13
+            lineNumber: 15
           }
         }, _react.default.createElement(_common.CardSection, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 16
           }
         }, _react.default.createElement(_common.Input, {
           label: "Email",
@@ -116213,30 +116218,32 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           value: this.props.email,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 17
           }
         })), _react.default.createElement(_common.CardSection, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 21
           }
         }, _react.default.createElement(_common.Input, {
           secureTextEntry: true,
           label: "Password",
           placeholder: "password",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20
-          }
-        })), _react.default.createElement(_common.CardSection, {
+          onChangeText: this.onPasswordChange.bind(this),
+          value: this.props.password,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 22
           }
+        })), _react.default.createElement(_common.CardSection, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
         }, _react.default.createElement(_common.Button, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 27
           }
         }, "Login")));
       }
@@ -116248,12 +116255,14 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var mapStateToProps = function mapStateToProps(state) {
     return {
-      email: state.auth.email
+      email: state.auth.email,
+      password: state.auth.password
     };
   };
 
   var _default2 = (0, _reactRedux.connect)(mapStateToProps, {
-    emailChanged: _actions.emailChanged
+    emailChanged: _actions.emailChanged,
+    passwordChanged: _actions.passwordChanged
   })(LoginForm);
 
   exports.default = _default2;
@@ -116644,7 +116653,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.emailChanged = void 0;
+  exports.passwordChanged = exports.emailChanged = void 0;
 
   var _types = _$$_REQUIRE(_dependencyMap[0], "./types");
 
@@ -116656,14 +116665,25 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   };
 
   exports.emailChanged = emailChanged;
+
+  var passwordChanged = function passwordChanged(text) {
+    return {
+      type: _types.PASSWORD_CHANGED,
+      payload: text
+    };
+  };
+
+  exports.passwordChanged = passwordChanged;
 },676,[677],"src/actions/index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.EMAIL_CHANGED = void 0;
+  exports.PASSWORD_CHANGED = exports.EMAIL_CHANGED = void 0;
   var EMAIL_CHANGED = 'email_changed';
   exports.EMAIL_CHANGED = EMAIL_CHANGED;
+  var PASSWORD_CHANGED = 'password_changed';
+  exports.PASSWORD_CHANGED = PASSWORD_CHANGED;
 },677,[],"src/actions/types.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
@@ -116678,7 +116698,8 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _types = _$$_REQUIRE(_dependencyMap[2], "../actions/types");
 
   var INITIAL_STATE = {
-    email: ''
+    email: '',
+    password: ''
   };
 
   var _default = function _default() {
@@ -116689,6 +116710,11 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       case _types.EMAIL_CHANGED:
         return (0, _objectSpread2.default)({}, state, {
           email: action.payload
+        });
+
+      case _types.PASSWORD_CHANGED:
+        return (0, _objectSpread2.default)({}, state, {
+          password: action.payload
         });
 
       default:
