@@ -44,6 +44,7 @@ class LoginForm extends Component {
     }
     render() {
         return (
+
             <Card>
                 <CardSection>
                     <Input label="Email" placeholder="email@gmail.com"
@@ -60,6 +61,7 @@ class LoginForm extends Component {
                     {this.renderButton()}
                 </CardSection>
             </Card>
+
         );
     }
 }
