@@ -2,7 +2,7 @@ import { Navigation } from "react-native-navigation";
 import { ShareConst, FindConst } from "../ScreenConst/Const";
 
 const startTabs = () => {
-  Navigation.startTabBaseApp({
+  Navigation.startTabBasedApp({
     tabs: [
       {
         screen: FindConst.screen,
