@@ -9,7 +9,7 @@
 import React from "react";
 import { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import { Hello } from "./components/hello";
+import { Hello } from "./hello";
 
 type Props = {};
 export default class App extends Component<Props> {
