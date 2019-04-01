@@ -8,7 +8,7 @@
 
 import React from "react";
 import { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Hello } from "./hello";
 
 type Props = {};
