@@ -1,0 +1,38 @@
+{
+  "extends": ["tslint-react-recommended"],
+  "rules": {
+    "linebreak-style": false,
+    "one-line": false,
+    "eofline": false,
+    "indent": [true, "spaces", 4],
+    "comment-format": false,
+    "object-literal-shorthand": false,
+    "arrow-return-shorthand": false,
+    "ordered-imports": false,
+    "no-non-null-assertion": false,
+    "prefer-for-of": false,
+    "no-bitwise": false,
+    "no-return-await": false,
+    "quotemark": [true, "single", "jsx-single", "avoid-escape"],
+    "semicolon": [true, "always"],
+    "member-access": false,
+    "member-ordering": false,
+    "trailing-comma": [
+      true,
+      {
+        "esSpecCompliant": true
+      }
+    ],
+    "no-empty": true,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "no-constant-condition": true,
+    "triple-equals": [true, "allow-undefined-check"],
+    "ter-indent": false,
+    "no-duplicate-imports": true,
+    "jsx-alignment": false,
+    "jsx-no-bind": true,
+    "jsx-no-lambda": true,
+    "max-classes-per-file": [true, 1]
+  }
+}
