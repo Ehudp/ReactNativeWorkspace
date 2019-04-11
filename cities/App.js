@@ -9,10 +9,10 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 
-import Tabs from "./src";
+import Container from "./src";
 
 export default class App extends Component {
   render() {
-    return <Tabs />;
+    return <Container />;
   }
 }

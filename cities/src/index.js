@@ -1,13 +1,14 @@
 import React from "react";
-import AddCity from "./AddCity";
-import Cities from "./Cities";
-import City from "./City";
+import AddCity from "./AddCity/AddCity";
+import Cities from "./Cities/Cities";
+import City from "./Cities/City";
+import { colors } from "./theme";
 
 import {
   createStackNavigator,
-  createBottomTabNavigator
+  createBottomTabNavigator,
+  createAppContainer
 } from "react-navigation";
-import { colors } from "./theme";
 
 const citiesNav = createStackNavigator(
   {
@@ -24,9 +25,10 @@ const citiesNav = createStackNavigator(
   }
 );
 
-const Tabs = createBottomTabNavigator({
+const tabs = createBottomTabNavigator({
   Cities: { screen: citiesNav },
   AddCity: { screen: AddCity }
 });
 
-export default Tabs;
+const container = createAppContainer(tabs);
+export default container;
