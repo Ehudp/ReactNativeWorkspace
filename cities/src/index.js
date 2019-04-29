@@ -10,20 +10,39 @@ import {
   createAppContainer
 } from "react-navigation";
 
-const citiesNav = createStackNavigator(
-  {
-    Cities: { screen: Cities },
-    City: { screen: City }
-  },
-  {
-    navigationOptions: {
+const citiesNav = createStackNavigator({
+  Cities: {
+    screen: Cities,
+    navigationOptions: ({ navigation }) => ({
+      title: "Cities",
       headerStyle: {
         backgroundColor: colors.primary
       },
-      headerTintColor: "#fff"
-    }
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        textAlign: "center",
+        flex: 1
+      }
+    })
+  },
+  City: {
+    screen: City,
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.city.city,
+      headerStyle: {
+        backgroundColor: colors.primary
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        color: "white",
+        fontSize: 20,
+        fontWeight: "400",
+        textAlign: "center",
+        flex: 1
+      }
+    })
   }
-);
+});
 
 const tabs = createBottomTabNavigator({
   Cities: { screen: citiesNav },

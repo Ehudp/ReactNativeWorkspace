@@ -3,20 +3,43 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import uuidV4 from "uuid/v4";
 import { colors } from "../theme";
 import { TextInput } from "react-native-gesture-handler";
-
+const cityName = "Tel Aviv";
+const countyName = "Israel";
 export default class AddCity extends React.Component {
   state = {
-    city: "",
-    country: ""
+    city: cityName,
+    country: countyName
   };
 
   onChangeText = (key, value) => {
-    this.state({
+    this.setState({
       [key]: value
     });
   };
-  submit = () => {};
+  submit = () => {
+    if (this.state.city === "" || this.state.country === "") return;
+
+    const city = {
+      city: this.state.city,
+      country: this.state.country,
+      locations: [],
+      id: uuidV4()
+    };
+
+    this.props.screenProps.addCity(city);
+
+    this.setState(
+      {
+        city: cityName,
+        country: countyName
+      },
+      () => {
+        this.props.navigation.navigate("Cities");
+      }
+    );
+  };
   render() {
+    // console.log("props:", this.props);
     return (
       <View style={styles.container}>
         <Text style={styles.heading}> Cities App</Text>
@@ -27,9 +50,9 @@ export default class AddCity extends React.Component {
           onChange={val => this.onChangeText("city", val)}
         />
         <TextInput
-          placeholder="City name"
-          value={this.state.city}
-          onChange={val => this.onChangeText("city", val)}
+          placeholder="Country name"
+          value={this.state.country}
+          onChange={val => this.onChangeText("country", val)}
           style={styles.input}
         />
 
@@ -66,8 +89,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   heading: {
-    fontSize: 30,
+    fontSize: 40,
     textAlign: "center",
-    margin: 10
+    margin: 10,
+    color: "white"
   }
 });
