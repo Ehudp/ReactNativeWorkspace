@@ -8,16 +8,31 @@ import {
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { connect } from "react-redux";
+import { addTodo } from "../actions";
 
-export default class AddTodo extends Component {
+class AddTodo extends Component {
+  state = {
+    text: ""
+  };
+
+  addTodo = text => {
+    //redux store
+    this.props.dispatch(addTodo(text));
+
+    this.setState({ text: "" });
+  };
+
   render() {
     return (
       <View style={styles.containerStyle}>
         <TextInput
+          onChangeText={text => this.setState({ text })}
+          value={this.state.text}
           style={styles.inputStyle}
           placeholder="Eg. Create New Video"
         />
-        <TouchableOpacity onPress={() => alert("add todo")}>
+        <TouchableOpacity onPress={() => this.addTodo(this.state.text)}>
           <View style={styles.iconContainerStyle}>
             <Icon
               name={Platform.OS === "ios" ? "ios-add" : "md-add"}
@@ -30,6 +45,8 @@ export default class AddTodo extends Component {
     );
   }
 }
+
+export default connect()(AddTodo);
 
 const styles = StyleSheet.create({
   containerStyle: {
