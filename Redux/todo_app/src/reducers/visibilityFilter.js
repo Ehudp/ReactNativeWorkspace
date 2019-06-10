@@ -1,7 +1,9 @@
+import { SET_VISIBILITY_FILTER } from "../actions/actionTypes";
+
 const visibilityFilter = (state = "SHOW_ALL", action) => {
-  //console.log("visibilityFilter State :", state);
+  //alert(action.type, action.filter);
   switch (action.type) {
-    case "SET_VISIBLE_FILTER":
+    case SET_VISIBILITY_FILTER:
       return action.filter;
     default:
       return state;

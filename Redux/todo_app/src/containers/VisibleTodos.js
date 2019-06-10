@@ -6,7 +6,7 @@ import store from "../store";
 const mapStateToProps = state => {
   //console.log("mapStateToProps State :", state);
   //console.log("store State :", store.getState());
-  return { todos: state.todos };
+  return { todos: state.todos, filter: state.visibilityFilter };
 };
 
 const mapDispatchToProps = dispatch => ({
