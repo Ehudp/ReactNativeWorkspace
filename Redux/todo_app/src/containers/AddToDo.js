@@ -32,7 +32,7 @@ class AddTodo extends Component {
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
           style={styles.inputStyle}
-          placeholder="Eg. Create New Video"
+          placeholder="Eg. Create New Todo"
         />
         <TouchableOpacity onPress={() => this.addTodo(this.state.text)}>
           <View style={styles.iconContainerStyle}>
