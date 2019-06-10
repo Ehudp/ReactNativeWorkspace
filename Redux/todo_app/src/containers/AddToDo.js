@@ -18,12 +18,14 @@ class AddTodo extends Component {
 
   addTodo = text => {
     //redux store
+    console.log(this.props);
     this.props.dispatch(addTodo(text));
 
     this.setState({ text: "" });
   };
 
   render() {
+    // console.log("AddTodo ", store);
     return (
       <View style={styles.containerStyle}>
         <TextInput

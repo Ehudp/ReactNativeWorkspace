@@ -1,53 +1,30 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
-import FilterComponent from "./FilterComponent";
+import { View, Text, StyleSheet } from "react-native";
+import FilterLink from "./FilterLink";
 import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from "../actions/actionTypes";
-
-const buildButton = (text, filter, showFilter) => (
-  <TouchableOpacity
-    style={styles.elementStyle}
-    onPress={() => showFilter(filter)}
-  >
-    <Text style={styles.textStyle}>{text}</Text>
-  </TouchableOpacity>
-);
+import * as AppConst from "../actions/AppConst";
 
 const FilterPanel = ({ showFilter, currentFilter }) => (
   <View style={styles.container}>
-    <Text style={[styles.elementStyle, styles.textStyle]}>Show</Text>
-    <FilterComponent
-      elementStyle={styles.elementStyle}
-      textStyle={styles.textStyle}
+    <Text style={{ fontSize: 24, marginRight: 20 }}>Show</Text>
+    <FilterLink
       showFilter={showFilter}
-      text="All"
+      text={AppConst.ALL}
       filter={SHOW_ALL}
       currentFilter={currentFilter}
     />
-    <FilterComponent
-      elementStyle={styles.elementStyle}
-      textStyle={styles.textStyle}
+    <FilterLink
       showFilter={showFilter}
-      text="Active"
+      text={AppConst.Active}
       filter={SHOW_ACTIVE}
       currentFilter={currentFilter}
     />
-    <FilterComponent
-      elementStyle={styles.elementStyle}
-      textStyle={styles.textStyle}
+    <FilterLink
       showFilter={showFilter}
-      text="Completed"
+      text={AppConst.Completed}
       filter={SHOW_COMPLETED}
       currentFilter={currentFilter}
     />
-    {/* {buildButton("All", SHOW_ALL, showFilter)}
-    {buildButton("Active", SHOW_ACTIVE, showFilter)}
-    {buildButton("completed", SHOW_COMPLETED, showFilter)} */}
   </View>
 );
 
@@ -55,16 +32,8 @@ export default FilterPanel;
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
     flexDirection: "row",
     padding: 20,
-    //alignItems: "stretch",
     justifyContent: "center"
-  },
-  elementStyle: {
-    marginRight: 20
-  },
-  textStyle: {
-    fontSize: 24
   }
 });

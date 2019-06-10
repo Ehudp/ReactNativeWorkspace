@@ -6,6 +6,7 @@ import FilterTodos from "./containers/FilterTodos";
 
 export default class TodoApp extends Component {
   render() {
+    //console.log("TodoApp store", store);
     return (
       <View style={styles.container}>
         <AddTodo />
