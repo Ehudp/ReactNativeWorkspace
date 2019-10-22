@@ -9,12 +9,14 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import Grid from "./src/Grid";
+import HelloComponent from "./src/Hello";
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Grid />
+        {/* <Grid /> */}
+        <HelloComponent />
       </View>
     );
   }

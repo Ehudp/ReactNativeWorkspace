@@ -3,9 +3,10 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default class App extends React.Component {
   render() {
+    console.log("Hello world");
     return (
       <View style={styles.container}>
-        <Text style={{ backgroundColor: "blue" }}>Hello Expo Test </Text>
+        <Text style={{ backgroundColor: "red" }}>Hello Expo </Text>
       </View>
     );
   }
