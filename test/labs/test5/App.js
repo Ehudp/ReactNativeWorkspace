@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import MyComponent from './src/MyComponent';
+import FunctionComponent from './src/FunctionComponent';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Open up App.js to start working on your app!</Text>
+      <MyComponent />
+      <FunctionComponent />
     </View>
   );
 }
