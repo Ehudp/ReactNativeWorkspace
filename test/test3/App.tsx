@@ -2,17 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 interface Props {
-  name: String;
+  name: string;
 }
 
 interface State {
-  massage: String;
+  massage: string;
+  age: number;
 }
 
 class MyComponent extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { massage: 'hello' };
+    this.state = { massage: 'hello', age: 10 };
   }
 
   componentDidMount() {}
