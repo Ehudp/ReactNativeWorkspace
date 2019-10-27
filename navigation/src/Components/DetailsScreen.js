@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, Button, View, Text } from 'react-native';
+import { preventAutoHide } from 'expo/build/launch/SplashScreen';
 
 export default class DetailsScreen extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isEdit: false,
+      counter: 1
+    };
+  }
+  edit() {
+    this.setState(perv => {
+      return { ...perv, isEdit: !perv.isEdit, counter: ++perv.counter };
+    });
+  }
+  finishEdit() {
+    this.setState(perv => {
+      return { ...perv, isEdit: false };
+    });
+  }
   render() {
+    if (this.state.isEdit) {
+      return (
+        <View style={styles.container}>
+          <Text>Is Edit</Text>
+          <Text>{this.state.counter}</Text>
+          <Button title="Finish Edit " onPress={() => this.finishEdit()} />
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         <View style={styles.viewStyle} />
@@ -12,6 +40,7 @@ export default class DetailsScreen extends Component {
             onPress={() => this.props.navigation.goBack()}
           />
         </View>
+        <Button title="Edit " onPress={() => this.edit()} />
       </View>
     );
   }
