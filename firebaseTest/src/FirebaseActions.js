@@ -20,6 +20,7 @@ export default class FirebaseActions extends Component {
       lastName,
       id
     };
+
     firebase
       .database()
       .ref('/users')
@@ -52,17 +53,37 @@ export default class FirebaseActions extends Component {
     }
   }
 
+  update() {
+    const user = this.users.pop();
+    console.log(user);
+    if (user) {
+      user.firstName = 'Update user';
+      firebase
+        .database()
+        .ref(`/users/${user.uid}`)
+        .set(user, a => {
+          console.log(`OnComplete ${a}`);
+        })
+        .then(val => {
+          console.log(`Promise ${val}`);
+        });
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
+          <Button title="Get" onPress={() => this.get()} />
+        </View>
+        <View style={styles.container}>
           <Button title="Add" onPress={() => this.add()} />
         </View>
         <View style={styles.container}>
-          <Button title="Delete" onPress={() => this.delete()} />
+          <Button title="Update" onPress={() => this.update()} />
         </View>
         <View style={styles.container}>
-          <Button title="Get" onPress={() => this.get()} />
+          <Button title="Delete" onPress={() => this.delete()} />
         </View>
       </View>
     );
